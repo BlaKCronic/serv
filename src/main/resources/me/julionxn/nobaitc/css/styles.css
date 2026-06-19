@@ -1,0 +1,500 @@
+.label  {
+    -fx-font-size: 12px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-weight: normal;
+}
+
+.iconBtn {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-pref-width: 70px;
+    -fx-pref-height: 70px;
+
+    -fx-min-width: 70px;
+    -fx-min-height: 70px;
+    -fx-max-width: 70px;
+    -fx-max-height: 70px;
+
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+.iconBtn:hover {
+    -fx-background-color: rgb(241, 241, 241);
+    -fx-border-color: #bcbcbc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+.iconBtn:pressed {
+    -fx-background-color: rgb(211, 236, 251);
+}
+
+
+.iconWideBtn {
+    -fx-background-color: transparent;
+    -fx-font-weight: bold;
+    -fx-pref-width: 100px;
+    -fx-pref-height: 70px;
+    -fx-min-width: 100px;
+    -fx-min-height: 70px;
+    -fx-max-width: 100px;
+    -fx-max-height: 70px;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+}
+.iconWideBtn:hover {
+    -fx-background-color: rgb(219, 234, 207);
+    -fx-border-color: #bcbcbc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+.iconWideBtn:pressed {
+    -fx-background-color: rgb(211, 236, 251);
+}
+
+.iconShadow {
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0, 0, 0, 0.2), /* negro con opacidad 0.2 */
+            0.10,               /* radius */
+            0.35,               /* spread */
+            2,                  /* offsetX */
+            2                 /* offsetY (usamos height como Y) */
+    );
+}
+
+.descriptionLabel {
+    -fx-font-size: 10px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #666666;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 4 6 4 6;
+    -fx-alignment: CENTER;
+}
+
+.separator {
+    -fx-padding: 8 8 8 8; /* espacio vertical sutil */
+}
+
+.separator .line {
+    -fx-border-color: #CCCCCC;  /* gris suave */
+    -fx-border-width: 0.5px;    /* línea delgada */
+}
+
+.separator .line {
+    -fx-border-color: rgba(0, 0, 0, 0.15);
+}
+
+.mathLabel {
+    -fx-font-family: "Consolas";
+    -fx-font-size: 13px;
+    -fx-font-weight: normal;
+    -fx-text-fill: #333333;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.h1 {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.split-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.split-pane-divider {
+    -fx-background-color: transparent;
+    -fx-padding: 0 1 0 1; /* muy delgado */
+}
+
+/* --- Scroll Pane --- */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent; /* Fondo transparente para integrarse */
+}
+
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent; /* Carril invisible */
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #CCCCCC; /* Color sólido principal */
+    -fx-background-radius: 0;    /* <--- AQUÍ: Eliminado el radio para hacerlo cuadrado */
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #B3B3B3; /* Oscurece al pasar el mouse */
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #999999;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #CCCCCC; /* Botones sólidos */
+    -fx-background-radius: 0;      /* Cuadrados */
+    -fx-padding: 2 2 2 2;
+}
+
+.scroll-bar .increment-button:hover,
+.scroll-bar .decrement-button:hover {
+    -fx-background-color: #B3B3B3;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white; /* Flechas blancas sobre el fondo gris */
+    -fx-padding: 2 2 2 2;
+}
+
+/* --- Dimensiones --- */
+.scroll-bar:vertical {
+    -fx-pref-width: 10; /* Un poco más ancho para que los botones luzcan */
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 10;
+}
+
+/* Esquina de unión (cuando ambos scrolls están activos) */
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+
+.defaultBtn:hover {
+    -fx-text-fill: #333333;
+    -fx-background-color: #f5f5f5;
+}
+
+.defaultBtn {
+    -fx-font-family: "Consolas";
+    -fx-font-weight: bold;
+    -fx-padding: 8 8 8 8;
+    -fx-background-radius: 0 0 0 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-border-width: 1;
+    -fx-border-insets: 0 0 -2 0;
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0, 0, 0, 0.2), /* negro con opacidad 0.2 */
+            0.10,               /* radius */
+            0.35,               /* spread */
+            2,                  /* offsetX */
+            2                 /* offsetY (usamos height como Y) */
+    );
+}
+
+/* Estado inactivo (antes .tabBtn) */
+.tabUnselectedBtn {
+    -fx-font-family: "Consolas";
+    -fx-background-color: #e1e1e1;
+    -fx-text-fill: #717171;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 8 8 0 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+}
+
+/* Efecto hover del botón inactivo */
+.tabUnselectedBtn:hover {
+    -fx-text-fill: #333333;
+    -fx-background-color: #f5f5f5;
+}
+
+/* Estado activo (antes .tabSelectedBtn y .tabBtn:selected) */
+.tabSelectedBtn {
+    -fx-font-family: "Consolas";
+    -fx-font-weight: bold;
+    -fx-background-color: white;
+    -fx-text-fill: #333333;
+    -fx-padding: 8 16 8 16;
+    -fx-background-radius: 8 8 0 0;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+    -fx-border-width: 1;
+    -fx-border-insets: 0 0 -2 0;
+}
+
+.text-field {
+    /* Fondo base */
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+
+    /* Bordes */
+    -fx-border-color: #CCCCCC;
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+
+    /* Tipografía */
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #999999;
+
+    /* Espaciado */
+    -fx-padding: 4 4 4 8;
+
+    /* Cursor */
+    -fx-cursor: text;
+}
+.text-field:hover {
+    -fx-border-color: #AAAAAA;
+}
+.text-field:focused {
+    -fx-border-color: #4A90E2;
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+.text-field:disabled {
+    -fx-background-color: rgba(0, 0, 0, 0.05);
+    -fx-text-fill: #999999;
+    -fx-border-color: #DDDDDD;
+}
+
+.text-field .text {
+    -fx-highlight-fill: #4A90E2;
+    -fx-highlight-text-fill: white;
+}
+.text-field .caret {
+    -fx-stroke: #4A90E2;
+}
+/* * Modern JavaFX RadioButton
+ */
+.radio-button {
+    -fx-font-size: 12px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-font-weight: normal;
+    -fx-text-fill: #333333;
+    -fx-label-padding: 0 0 0 8px; /* Spacing between radio and text */
+}
+
+/* * OUTER CIRCLE (.radio)
+ * We use exact dimensions to bypass padding-based sizing.
+ */
+.radio-button > .radio {
+    /* 1. Force exact 20x20 dimensions */
+    -fx-min-width: 16px;
+    -fx-pref-width: 16px;
+    -fx-max-width: 16px;
+
+    -fx-min-height: 16px;
+    -fx-pref-height: 16px;
+    -fx-max-height: 16px;
+
+    /* 2. Strip default asymmetric layout properties */
+    -fx-padding: 0;
+
+    /* 3. Style: Border (0 inset) and Fill (1px inset) */
+    -fx-background-color: #ced4da, #ffffff;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 10px, 10px; /* Must be exactly half of width/height */
+}
+
+/* Hover State */
+.radio-button:hover > .radio {
+    -fx-background-color: #80bdff, #f8f9fa;
+}
+
+/* Selected State */
+.radio-button:selected > .radio {
+    -fx-background-color: #007bff, #ffffff;
+}
+
+/* * INNER DOT (.dot)
+ */
+.radio-button > .radio > .dot {
+    /* 1. Force exact 10x10 dimensions */
+    -fx-min-width: 8px;
+    -fx-pref-width: 8px;
+    -fx-max-width: 8px;
+
+    -fx-min-height: 8px;
+    -fx-pref-height: 8px;
+    -fx-max-height: 8px;
+
+    /* 2. CRITICAL FIX: Strip Modena's downward-shifting insets */
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+
+    -fx-background-radius: 5px; /* Half of 10px */
+    -fx-background-color: transparent; /* Hidden by default */
+}
+
+/* Inner Dot Selected State */
+.radio-button:selected > .radio > .dot {
+    -fx-background-color: #007bff;
+    /* Ensure insets remain 0 when selected */
+    -fx-background-insets: 0;
+}
+
+/* Disabled State */
+.radio-button:disabled {
+    -fx-opacity: 0.5;
+}
+
+/* Contenedor principal del TextArea */
+.text-area {
+    /* Fondo base */
+    -fx-background-color: rgba(255, 255, 255, 0.05);
+
+    /* Bordes */
+    -fx-border-color: #AAAAAA;
+    -fx-border-width: 0.5;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+
+    /* Tipografía */
+    -fx-font-size: 12px;
+    -fx-text-fill: #333333;
+    -fx-prompt-text-fill: #999999;
+
+    /* Cursor */
+    -fx-cursor: text;
+}
+
+/* Importante: El TextArea tiene un viewport interno que debemos hacer transparente */
+.text-area .content {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 4 4 4 8; /* Mismo espaciado que tu TextField */
+}
+
+/* Estados de interacción */
+.text-area:hover {
+    -fx-border-color: #78a7e1;
+}
+
+.text-area:focused {
+    -fx-border-color: #4A90E2;
+    -fx-background-color: rgba(255, 255, 255, 0.08);
+}
+
+.text-area:focused .content {
+    -fx-background-color: transparent;
+}
+
+/* Estado deshabilitado */
+.text-area:disabled {
+    -fx-opacity: 1.0; /* Evita que JavaFX lo opaque por defecto */
+    -fx-background-color: rgba(0, 0, 0, 0.05);
+    -fx-border-color: #DDDDDD;
+}
+
+.text-area:disabled .content {
+    -fx-text-fill: #999999;
+}
+
+/* Selección de texto y Cursor (Caret) */
+.text-area .text {
+    -fx-highlight-fill: #4A90E2;
+    -fx-highlight-text-fill: white;
+    -fx-fill: #333333; /* Color del texto dentro del nodo de texto */
+}
+
+.text-area .caret {
+    -fx-stroke: #4A90E2;
+}
+
+/* Estilo opcional para las barras de desplazamiento (ScrollBars)
+   para que no rompan la estética minimalista */
+.text-area .scroll-bar:vertical,
+.text-area .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.text-area .scroll-bar .thumb {
+    -fx-background-color: #CCCCCC;
+    -fx-background-radius: 0;
+}
+
+/* Contenedor Principal: Menos es más para evitar bordes fantasma */
+.table-view {
+    -fx-background-color: white; /* Cambiado de transparent para evitar bugs de refresco */
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1px;
+}
+
+/* Cabecera: Simplificada para evitar desalineación de columnas */
+.table-view .column-header-background {
+    -fx-background-color: #f8f9fa;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+    -fx-border-color: transparent #e0e0e0 transparent transparent; /* Solo borde derecho */
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #5f6368;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+/* Celdas: Eliminamos el padding lateral excesivo que causa scrolls innecesarios */
+.table-view .table-cell {
+    -fx-border-color: transparent;
+    -fx-text-fill: #3c4043;
+    -fx-alignment: center;
+}
+
+/* Filas: Usamos solo el color de fondo para el Zebra */
+.table-row-cell {
+    -fx-background-color: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #f1f3f4;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #e8f0fe;
+}
+
+.table-row-cell:selected .table-cell {
+    -fx-text-fill: #1a73e8;
+}
+
+/* Quitar el 'filler' de la derecha para que no se vea un hueco blanco */
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbars: Estilo cuadrado y minimalista */
+.table-view .scroll-bar {
+    -fx-background-color: #f1f3f4;
+}
+
+.table-view .scroll-bar .thumb {
+    -fx-background-color: #dadce0;
+    -fx-background-radius: 0; /* Barras cuadradas */
+    -fx-background-insets: 2;
+}
+
+.table-view .scroll-bar .increment-button,
+.table-view .scroll-bar .decrement-button {
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+}

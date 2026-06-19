@@ -1,0 +1,34 @@
+.modulesContainer {
+    -fx-background-color: #004073;
+}
+.module-button {
+    -fx-background-color: #004073;
+    -fx-text-fill: white;
+    -fx-font-family: "Cambria Math", "STIX Two Math", "Times New Roman";
+    -fx-font-size: 14px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 10 18;
+    -fx-cursor: hand;
+}
+
+.module-button:hover {
+    -fx-background-color: #005a99;
+}
+
+.module-button.active {
+    -fx-background-color: #ffffff !important;
+    -fx-text-fill: #000000 !important;
+}
+
+.module-button.active:hover,
+.module-button.active:focused {
+    -fx-background-color: #ffffff !important;
+    -fx-text-fill: #000000 !important;
+}
+
+.module-button:focused {
+    -fx-background-color: #005a99; /* O mantener el azul oscuro */
+    -fx-background-insets: 0;
+}
+

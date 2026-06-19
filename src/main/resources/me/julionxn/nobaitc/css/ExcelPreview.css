@@ -1,0 +1,21 @@
+/* Estilo para las cajas de las celdas */
+.spreadsheet-cell {
+    -fx-border-color: #d3d3d3;
+    -fx-border-width: 0.5;
+    -fx-alignment: CENTER;
+}
+
+/* Estilo para los encabezados */
+.header-cell {
+    -fx-background-color: #e0e0e0;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+    -fx-border-color: #a0a0a0;
+}
+
+/* Estilo para cuando se selecciona una celda */
+.spreadsheet-cell:selected {
+    -fx-background-color: #e8f0fe;
+    -fx-border-color: #4285f4;
+    -fx-border-width: 2;
+}

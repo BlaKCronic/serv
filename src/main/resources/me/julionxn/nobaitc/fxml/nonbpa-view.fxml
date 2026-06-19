@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.julionxn.nobaitc.controllers.NONBPAController">
+      <children>
+      <ScrollPane fitToWidth="true" maxHeight="120.0" minHeight="120.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <content>
+            <HBox minHeight="110.0" minWidth="965.0" style="-fx-background-color: white;">
+               <children>
+                        <VBox alignment="BOTTOM_LEFT" minWidth="150.0">
+                            <children>
+                                <HBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Button contentDisplay="TOP" disable="true" graphicTextGap="8.0" mnemonicParsing="false" styleClass="iconBtn" text="Abrir">
+                                            <graphic>
+                                                <FontIcon iconColor="#004073" iconLiteral="far-folder-open" iconSize="16" styleClass="iconShadow">
+                                                    <effect>
+                                                        <DropShadow height="2.0" offsetY="7.0" radius="0.25" spread="0.35" width="1.0">
+                                                            <color>
+                                                                <Color opacity="0.20000000298023224" />
+                                                            </color>
+                                                        </DropShadow>
+                                                    </effect>
+                                                </FontIcon>
+                                            </graphic>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Button>
+                                        <Button contentDisplay="TOP" disable="true" graphicTextGap="8.0" mnemonicParsing="false" styleClass="iconBtn" text="Guardar">
+                                            <graphic>
+                                                <FontIcon iconColor="#004073" iconLiteral="fas-file" iconSize="16" styleClass="iconShadow" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="descriptionLabel" text="Archivo" textFill="#515151" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets top="2.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="4.0" right="4.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                            <HBox.margin>
+                                <Insets />
+                            </HBox.margin>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+      
+                                                <VBox alignment="BOTTOM_CENTER" minWidth="220.0">
+                            <children>
+                                <HBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Button graphicTextGap="8.0" maxWidth="100.0" onAction="#generateFractions" styleClass="iconWideBtn" text="Generar Fracciones" textAlignment="CENTER" wrapText="true">
+                                            <graphic>
+                                                <FontIcon iconColor="#11a40c" iconLiteral="typ-calculator" iconSize="24" styleClass="iconShadow" />
+                                            </graphic>
+                                        </Button>
+                                        <Button fx:id="sendToAliasBtn" disable="true" graphicTextGap="8.0" layoutX="118.0" layoutY="10.0" onAction="#sendToAlias" styleClass="iconWideBtn" text="Enviar a Alias" textAlignment="CENTER" wrapText="true">
+                                            <graphic>
+                                                <FontIcon iconColor="#004073" iconLiteral="fas-external-link-alt" iconSize="16" styleClass="iconShadow" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="descriptionLabel" text="Acciones" textFill="#515151" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets top="2.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="4.0" right="4.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                  <VBox alignment="BOTTOM_CENTER" HBox.hgrow="ALWAYS">
+                     <children>
+                                  <TextArea fx:id="logTextArea" editable="false" maxHeight="70.0" minWidth="200.0" prefWidth="160.0" wrapText="true" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </VBox.margin>
+                        </TextArea>
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="97.0" maxWidth="1.7976931348623157E308" styleClass="descriptionLabel" text="Log de Actividad:" textFill="#515151">
+                           <padding>
+                              <Insets left="4.0" right="4.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+      
+                                                <Separator orientation="VERTICAL" />
+      
+                                                <VBox alignment="BOTTOM_CENTER" maxWidth="160.0">
+                            <children>
+                                <HBox alignment="CENTER" spacing="8.0">
+                                    <children>
+                                        <Button fx:id="toExcelBtn" contentDisplay="TOP" disable="true" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleExportExcel" styleClass="iconBtn" text="EXCEL">
+                                            <graphic>
+                                                <FontIcon iconColor="#1e6824" iconLiteral="fas-file-excel" iconSize="16" styleClass="iconShadow" />
+                                            </graphic>
+                                        </Button>
+                                        <Button fx:id="toPdfBtn" contentDisplay="TOP" disable="true" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleExportPdf" styleClass="iconBtn" text="PDF">
+                                            <graphic>
+                                                <FontIcon iconColor="#b30b00" iconLiteral="fas-file-pdf" iconSize="16" styleClass="iconShadow" />
+                                            </graphic>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="descriptionLabel" text="Exportar" textFill="#515151" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets top="2.0" />
+                                    </VBox.margin>
+                                    <padding>
+                                        <Insets left="4.0" right="4.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Separator orientation="VERTICAL" />
+                  <VBox alignment="BOTTOM_CENTER" layoutX="865.0" layoutY="10.0" maxWidth="160.0">
+                     <children>
+                        <HBox alignment="CENTER" spacing="8.0">
+                           <children>
+                              <Button fx:id="copyTableBtn" contentDisplay="TOP" disable="true" graphicTextGap="8.0" mnemonicParsing="false" onAction="#handleCopyToClipboard" styleClass="iconBtn" text="Copiar tabla" textAlignment="CENTER" wrapText="true">
+                                 <graphic>
+                                    <FontIcon iconColor="#004073" iconLiteral="fas-copy" iconSize="16" styleClass="iconShadow" />
+                                 </graphic>
+                              </Button>
+                              <Button contentDisplay="TOP" graphicTextGap="8.0" mnemonicParsing="false" onAction="#clearResults" styleClass="iconBtn" text="Limpiar datos" textAlignment="CENTER" wrapText="true">
+                                 <graphic>
+                                    <FontIcon iconColor="#565656" iconLiteral="far-trash-alt" iconSize="16" styleClass="iconShadow" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                        </HBox>
+                        <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="descriptionLabel" text="Datos" textFill="#515151" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="2.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="4.0" right="4.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+         <VBox.margin>
+            <Insets top="-2.0" />
+         </VBox.margin>
+         <content>      <VBox>
+               <children>
+                  <HBox spacing="2.0">
+                     <children>
+                      <Button fx:id="dataInputViewBtn" mnemonicParsing="false" onAction="#handleShowDataInput" styleClass="tabSelectedBtn" text="Datos" />
+                        <Button fx:id="dataTableViewBtn" mnemonicParsing="false" onAction="#handleOpenPreview" styleClass="tabUnselectedBtn" text="Tablas">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                      <!-- Panel superior: Configuración -->
+                      <ScrollPane fx:id="inputDataScrollPane" fitToHeight="true" fitToWidth="true" minHeight="160.0" pannable="true" style="-fx-background-color: white;">
+                          <content>
+                        <SplitPane>
+                           <items>
+                                    <VBox style="-fx-border-color: transparent;">
+                                        <children>
+                                    <HBox alignment="CENTER_LEFT" maxWidth="1.7976931348623157E308" prefHeight="140.0" spacing="8.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <VBox minWidth="300.0" prefWidth="26.0" spacing="8.0">
+                                             <children>
+                                                            <Label minWidth="160.0" styleClass="h1" text="Información del Diseño:" />
+                                                <VBox>
+                                                   <children>
+                                                                  <Label fx:id="trLabel" minWidth="150.0" text="Número de corridas (TR): -" VBox.vgrow="ALWAYS" />
+                                                                  <Label fx:id="factorsCountLabel" minWidth="150.0" text="Factores: -" VBox.vgrow="ALWAYS" />
+                                                   </children>
+                                                </VBox>
+                                                          <VBox alignment="CENTER_LEFT" spacing="8.0">
+                                                              <children>
+                                                                  <Label fx:id="glLabel" minWidth="160.0" text="Grados de libertad (GL): -" VBox.vgrow="ALWAYS" />
+                                                                  <Label fx:id="sfMinLabel" minWidth="160.0" text="Tamaño minimo de la fraccion (SF min): -" wrapText="true" VBox.vgrow="ALWAYS" />
+                                                                  <Label fx:id="lcmLabel" minWidth="190.0" text="Mínimo común múltiplo (LCM): -" VBox.vgrow="ALWAYS" />
+                                                              </children>
+                                                          </VBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </VBox>
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                          <VBox spacing="8.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                          <Label styleClass="h1" text="Configuración de factores por niveles de cada factor" />
+                                                              <Label text="Ingrese los niveles para cada factor:" />
+                                                <HBox>
+                                                   <children>
+                                                      <VBox spacing="8.0">
+                                                         <children>
+                                                                            <Button fx:id="addFactorButton" onAction="#addFactorInput" style="-fx-background-color: transparent;">
+                                                               <graphic>
+                                                                  <FontIcon iconColor="#6c8d59" iconLiteral="far-plus-square" iconSize="16" />
+                                                               </graphic>
+                                                            </Button>
+                                                                            <Button fx:id="removeFactorButton" onAction="#removeFactorInput" style="-fx-background-color: transparent;">
+                                                               <graphic>
+                                                                  <FontIcon iconColor="#b32b25" iconLiteral="far-minus-square" iconSize="16" />
+                                                               </graphic>
+                                                            </Button>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                         </padding>
+                                                      </VBox>
+                                                      <GridPane fx:id="factorsInputContainer" hgap="4.0" vgap="4.0">
+                                                         <rowConstraints>
+                                                            <RowConstraints vgrow="SOMETIMES" />
+                                                            <RowConstraints vgrow="SOMETIMES" />
+                                                            <RowConstraints vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <padding>
+                                                            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                                         </padding>
+                                                         <columnConstraints>
+                                                            <ColumnConstraints />
+                                                            <ColumnConstraints />
+                                                            <ColumnConstraints />
+                                                            <ColumnConstraints />
+                                                            <ColumnConstraints />
+                                                            <ColumnConstraints />
+                                                         </columnConstraints>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                  
+                                                                                                                                            <Separator>
+                                       <VBox.margin>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </VBox.margin>
+                                    </Separator>
+                                    <HBox minWidth="700.0" spacing="8.0">
+                                       <children>
+                        
+                                                                                                                                <!-- Sección de parámetros de fracción -->
+                                                  <VBox minWidth="480.0" spacing="8.0">
+                                                      <children>
+                                                          <Label styleClass="h1" text="Parámetros de la fracción por parámetros del método NONBPA" />
+                                                          <GridPane hgap="8.0" vgap="8.0">
+                                                              <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                                                  <ColumnConstraints hgrow="SOMETIMES" />
+                                                              </columnConstraints>
+                                                              <rowConstraints>
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                                                              </rowConstraints>
+                                                              <children>
+                                                                  <Label text="Tamaño de fracción (SF):" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                                  <TextField fx:id="fractionSizeField" promptText="Ej: 8" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                                  <Label style="-fx-font-size: 11px; -fx-text-fill: #666;" text="Debe ser ≥ SF min y &lt; TR" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                        
+                                                                                                                                                <Label text="Número de fracciones:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                                                  <TextField fx:id="numberOfFractionsField" prefWidth="150.0" promptText="Ej: 5" text="1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                                  <Label style="-fx-font-size: 11px; -fx-text-fill: #666;" text="Máximo TR fracciones" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                              </children>
+                                                   <padding>
+                                                      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                                   </padding>
+                                                          </GridPane>
+                                                      </children>
+                                                  </VBox>
+                                          <Separator orientation="VERTICAL" />
+                        
+                                                                                                                                <!-- Sección tipo de fracciones -->
+                                                  <VBox spacing="8.0">
+                                                      <children>
+                                                          <Label styleClass="h1" text="Tipo de Fracciones" />
+                                                          <VBox spacing="8.0">
+                                                              <children>
+                                                                  <RadioButton fx:id="randomFractionsRadio" selected="true" text="Fracciones aleatorias" />
+                                                                  <RadioButton fx:id="customFractionsRadio" text="Fracciones personalizadas" />
+                                                                  <HBox alignment="CENTER_LEFT" spacing="8.0">
+                                                                      <children>
+                                                                          <TextField fx:id="customFractionsField" disable="true" promptText="Ej: 1, 3, 5 o [1 3 5]" text="1 5" HBox.hgrow="ALWAYS" />
+                                                                      </children>
+                                                                      <VBox.margin>
+                                                                          <Insets left="22.0" />
+                                                                      </VBox.margin>
+                                                                  </HBox>
+                                                              </children>
+                                                          </VBox>
+                                                      </children>
+                                             <padding>
+                                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                             </padding>
+                                                  </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </HBox>
+                                        </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                                    </VBox>
+                           </items>
+                        </SplitPane>
+                          </content>
+                      </ScrollPane>
+                          <VBox fx:id="tableFractionsNONBPABox" alignment="CENTER_LEFT" spacing="8.0" style="-fx-background-color: white;">
+                          <children>
+                              <Label styleClass="h1" text="Resultados por fracciones NONBPA:" />
+                        <ScrollPane fitToHeight="true" fitToWidth="true" minHeight="120.0" VBox.vgrow="ALWAYS">
+                           <content>
+                                        <TableView fx:id="resultsTable">
+                                            <columns>
+                                                <TableColumn fx:id="fractionNumberColumn" text="Fracción" />
+                                                <TableColumn fx:id="fractionDataColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="Datos" />
+                                                <TableColumn fx:id="gbmColumn" text="GBM" />
+                                                <TableColumn fx:id="j2Column" maxWidth="-1.0" minWidth="200.0" prefWidth="-1.0" text="J2" />
+                                                <TableColumn fx:id="vifsColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="VIF's" />
+                                            </columns>
+                                        </TableView>
+                           </content>
+                        </ScrollPane>
+                          </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+                     </padding>
+                      </VBox>
+                  <VBox fx:id="tableViewBox" alignment="CENTER_LEFT" layoutX="26.0" layoutY="378.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets bottom="8.0" left="16.0" right="16.0" top="2.0" />
+               </padding>
+            </VBox>
+         </content>
+         <effect>
+            <DropShadow height="5.0" radius="2.0" width="5.0">
+               <color>
+                  <Color opacity="0.20000000298023224" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ScrollPane>
+      </children>
+  </VBox>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+
+<VBox style="-fx-background-color: transparent;" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.julionxn.nobaitc.controllers.ExcelPreviewController">
+    <children>
+        <HBox alignment="CENTER_LEFT" spacing="0.5">
+            <children>
+                <Button fx:id="btnResumen" mnemonicParsing="false" onAction="#showResumen" styleClass="tabSelectedBtn" text="Resumen de Fracciones" />
+                <Button fx:id="btnDetalles" mnemonicParsing="false" onAction="#showDetalles" styleClass="tabSelectedBtn" text="Matrices Detalladas" />
+            </children>
+         <padding>
+            <Insets left="8.0" right="4.0" top="4.0" />
+         </padding>
+        </HBox>
+        <AnchorPane fx:id="spreadsheetContainer" stylesheets="@../css/ExcelPreview.css">
+         <padding>
+            <Insets left="8.0" />
+         </padding></AnchorPane>
+    </children>
+   <padding>
+      <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+   </padding>
+   <effect>
+      <DropShadow height="5.0" radius="2.0" width="5.0">
+         <color>
+            <Color opacity="0.20000000298023224" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

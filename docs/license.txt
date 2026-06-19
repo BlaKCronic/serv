@@ -1,0 +1,5 @@
+Sistema NOBA-ITC en desarrollo por la Dr. Doctora Yaquelin Pantoja.
+
+Sistema para análisis y generación de diseños experimentales.
+Desarrollado para facilitar la creación de fracciones factoriales
+con métricas de balance y ortogonalidad.
