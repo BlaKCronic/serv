@@ -74,10 +74,13 @@ public class AliasStructureController implements Initializable {
         resultArea.setWrapText(false);
 
         inputMatrixArea.setPromptText(
-            "Ingrese la fracción en formato MATLAB:\n" +
-            "[1 2 3 4 5 1 2 3 4 5; 1 2 3 4 5 6 7 1 2 3; 1 2 3 1 2 3 1 2 3 1]\n\n" +
-            "Cada fila separada por  ;  y valores por espacios.\n" +
-            "La matriz se transpone automáticamente igual que en MATLAB."
+                "Ingrese la fracción en formato MATLAB:\n" +
+                        "[1 2 3 4 5 1 2 3 4 5; 1 2 3 4 5 6 7 1 2 3; 1 2 3 1 2 3 1 2 3 1]\n\n" +
+                        "Cada FILA separada por  ;  (punto y coma).\n" +
+                        "Los valores dentro de cada fila separados por COMA o espacio.\n\n" +
+                        "⚠ Si omite el  ;  entre filas, todos los valores se tratan\n" +
+                        "   como una sola fila y se suman como si fueran una sola fracción.\n\n" +
+                        "La matriz se transpone automáticamente (equivalente a ' en MATLAB)."
         );
         showGridpane();
         statusLabel.setText("Ingrese la fracción y presione Calcular.");

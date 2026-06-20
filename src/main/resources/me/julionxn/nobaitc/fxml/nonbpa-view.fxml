@@ -365,15 +365,17 @@
                               <Label styleClass="h1" text="Resultados por fracciones NONBPA:" />
                         <ScrollPane fitToHeight="true" fitToWidth="true" minHeight="120.0" VBox.vgrow="ALWAYS">
                            <content>
-                                        <TableView fx:id="resultsTable">
-                                            <columns>
-                                                <TableColumn fx:id="fractionNumberColumn" text="Fracción" />
-                                                <TableColumn fx:id="fractionDataColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="Datos" />
-                                                <TableColumn fx:id="gbmColumn" text="GBM" />
-                                                <TableColumn fx:id="j2Column" maxWidth="-1.0" minWidth="200.0" prefWidth="-1.0" text="J2" />
-                                                <TableColumn fx:id="vifsColumn" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="VIF's" />
-                                            </columns>
-                                        </TableView>
+                               <TableView fx:id="resultsTable">
+                                   <columns>
+                                       <TableColumn fx:id="fractionNumberColumn" text="#" prefWidth="40" />
+                                       <TableColumn fx:id="startIndexColumn"     text="Inicio" prefWidth="70" />
+                                       <TableColumn fx:id="fractionDataColumn"   maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="Datos" />
+                                       <TableColumn fx:id="gbmColumn"            text="GBM Total" prefWidth="90" />
+                                       <TableColumn fx:id="gbmVectorColumn"      maxWidth="1.7976931348623157E308" minWidth="80" prefWidth="-1.0" text="GBM x Factor" />
+                                       <TableColumn fx:id="j2Column"             maxWidth="-1.0" minWidth="200.0" prefWidth="-1.0" text="J2" />
+                                       <TableColumn fx:id="vifsColumn"           maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="-1.0" text="VIF's" />
+                                   </columns>
+                               </TableView>
                            </content>
                         </ScrollPane>
                           </children>

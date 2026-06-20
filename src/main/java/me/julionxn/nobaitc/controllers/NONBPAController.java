@@ -76,6 +76,9 @@ public class NONBPAController implements Initializable {
 
     @FXML private TextArea logTextArea;
 
+    @FXML private TableColumn<FractionResult, Long>   startIndexColumn;  // número real
+    @FXML private TableColumn<FractionResult, String> gbmVectorColumn;   // GBM por factor
+
     // ==================== Services & Data ====================
 
     private final NONBPAGeneratorService generatorService;
@@ -167,14 +170,14 @@ public class NONBPAController implements Initializable {
     }
 
     private void setupTableColumns() {
-        // Configurar value factories
         fractionNumberColumn.setCellValueFactory(new PropertyValueFactory<>("fractionNumber"));
-        fractionDataColumn.setCellValueFactory(new PropertyValueFactory<>("fractionData"));
-        gbmColumn.setCellValueFactory(new PropertyValueFactory<>("gbm"));
-        j2Column.setCellValueFactory(new PropertyValueFactory<>("j2"));
-        vifsColumn.setCellValueFactory(new PropertyValueFactory<>("vifsData"));
+        startIndexColumn    .setCellValueFactory(new PropertyValueFactory<>("startIndex"));
+        fractionDataColumn  .setCellValueFactory(new PropertyValueFactory<>("fractionData"));
+        gbmColumn           .setCellValueFactory(new PropertyValueFactory<>("gbm"));
+        gbmVectorColumn     .setCellValueFactory(new PropertyValueFactory<>("gbmVectorData"));
+        j2Column            .setCellValueFactory(new PropertyValueFactory<>("j2"));
+        vifsColumn          .setCellValueFactory(new PropertyValueFactory<>("vifsData"));
 
-        // Formatear columnas numéricas
         setupNumericColumn(gbmColumn);
         setupNumericColumn(j2Column);
     }
@@ -368,16 +371,47 @@ public class NONBPAController implements Initializable {
     @FXML
     private void generateFractions() {
         try {
-            int[] design = validateAndGetDesign();
-            int fractionSize = parseIntegerField(fractionSizeField, "Tamaño de fracción");
-            int numberOfFractions = parseIntegerField(numberOfFractionsField, "Número de fracciones");
+            int[] design          = validateAndGetDesign();
+            int   fractionSize    = parseIntegerField(fractionSizeField,    "Tamaño de fracción");
+            int   numberOfFracts  = parseIntegerField(numberOfFractionsField,"Número de fracciones");
 
-            List<FractionResult> results = generateFractionsBasedOnMode(
-                    design, fractionSize, numberOfFractions
+            // ── Spinner de progreso ──────────────────────────────────────────
+            javafx.scene.control.ProgressIndicator spinner =
+                    new javafx.scene.control.ProgressIndicator();
+            spinner.setMaxSize(32, 32);
+            logTextArea.setVisible(false);
+            // Inserta el spinner en el mismo VBox padre del logTextArea
+            javafx.scene.layout.VBox logParent =
+                    (javafx.scene.layout.VBox) logTextArea.getParent();
+            logParent.getChildren().add(0, spinner);
+
+            // ── Generación en background ─────────────────────────────────────
+            int[]  designFinal       = design;
+            int    fractionSizeFinal = fractionSize;
+            int    numberOfFractsFinal = numberOfFracts;
+
+            me.julionxn.nobaitc.util.AppExecutor.execute(
+                    () -> generateFractionsBasedOnMode(designFinal, fractionSizeFinal, numberOfFractsFinal),
+                    results -> {
+                        logParent.getChildren().remove(spinner);
+                        logTextArea.setVisible(true);
+                        displayResults(results);
+                        handleOpenPreview();
+                        enableButtons();
+                    },
+                    error -> {
+                        logParent.getChildren().remove(spinner);
+                        logTextArea.setVisible(true);
+                        if (error instanceof NumberFormatException) {
+                            showError("Error de entrada", "Verifique que todos los campos numéricos sean válidos");
+                        } else if (error instanceof IllegalArgumentException) {
+                            showError("Error de validación", error.getMessage());
+                        } else {
+                            showError("Error", "Error al generar fracciones: " + error.getMessage());
+                            error.printStackTrace();
+                        }
+                    }
             );
-            displayResults(results);
-            handleOpenPreview();
-            enableButtons();
 
         } catch (NumberFormatException e) {
             showError("Error de entrada", "Verifique que todos los campos numéricos sean válidos");

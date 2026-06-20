@@ -189,21 +189,26 @@ public class NONBPAGeneratorService {
         return fraction;
     }
 
+// ── Solo el fragmento que cambia ──────────────────────────────────────────
+    // Reemplaza generateFractionsFromStarts en NONBPAGeneratorService.java
+
     private List<FractionResult> generateFractionsFromStarts(int[] design, int fractionSize, long[] starts) {
         List<FractionResult> results = new ArrayList<>(starts.length);
 
         for (int i = 0; i < starts.length; i++) {
-            long startIndex = starts[i] - 1; // Índice base 0
+            long startIndex = starts[i] - 1; // índice base 0 para la extracción
 
-            // Extraer la fracción al vuelo, ¡sin consumir GB de memoria!
             double[][] fraction = extractFractionOnTheFly(design, startIndex, fractionSize);
 
-            // Calcular métricas
-            double gbm = gbmCalculator.calculateGBM(fraction, design);
-            double j2 = j2Calculator.calculateJ2(fraction);
+            double[]  gbmVector = gbmCalculator.calculateGBMVector(fraction, design);
+            double    gbm       = 0;
+            for (double v : gbmVector) gbm += v;
+
+            double   j2   = j2Calculator.calculateJ2(fraction);
             double[] vifs = vifsCalculator.calculate(fraction);
 
-            results.add(new FractionResult(i + 1, gbm, j2, vifs, fraction));
+            // starts[i] es base-1 (igual que los números que ve el usuario)
+            results.add(new FractionResult(i + 1, starts[i], gbm, gbmVector, j2, vifs, fraction));
         }
 
         return results;
