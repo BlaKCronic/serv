@@ -1,4 +1,5 @@
 module me.julionxn.nobaitc {
+    requires javafx.base;
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
@@ -28,5 +29,4 @@ module me.julionxn.nobaitc {
     opens me.julionxn.nobaitc.controllers to javafx.fxml;
     opens me.julionxn.nobaitc.data.nonbpa to javafx.fxml, javafx.base;
     exports me.julionxn.nobaitc.data.nonbpa;
-
 }

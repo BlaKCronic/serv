@@ -28,10 +28,15 @@ public class NONBPAGeneratorService {
         if (design == null || design.length == 0 || design.length > 15) {
             return false;
         }
-
-        long tr = calculateProduct(design);
-        long lcm = MatlabFunctions.calculateLCM(design); // Asegúrate de cambiar esto en MatlabFunctions
-
+ 
+        // Ningún factor puede tener 1 solo nivel (sin variación)
+        for (int levels : design) {
+            if (levels < 2) return false;
+        }
+ 
+        long tr  = calculateProduct(design);
+        long lcm = MatlabFunctions.calculateLCM(design);
+ 
         return tr == lcm;
     }
 

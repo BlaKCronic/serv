@@ -167,6 +167,8 @@ public class NONBPAController implements Initializable {
                 customFractionsField.setDisable(!newVal)
         );
         customFractionsField.setDisable(true);
+
+        customFractionsField.setPromptText("Ej: 1, 2, 5   —   Si desea más de una fracción separe con comas: 1, 2, …");
     }
 
     private void setupTableColumns() {
@@ -525,10 +527,14 @@ public class NONBPAController implements Initializable {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException("Campo de fracciones personalizadas vacío");
         }
-
-        String cleaned = input.replaceAll("[\\[\\]\\s]", "");
-
-        return Arrays.stream(cleaned.split(","))
+ 
+        // Quitar corchetes
+        String cleaned = input.replaceAll("[\\[\\]]", "").trim();
+ 
+        // Separar por coma Y/O uno o más espacios
+        String[] tokens = cleaned.split("[,\\s]+");
+ 
+        return Arrays.stream(tokens)
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .map(Integer::parseInt)
