@@ -117,15 +117,18 @@ public class NONBPAGeneratorService {
     // ── Extracción on-the-fly ─────────────────────────────────────────────────
 
     private double[][] extractFractionOnTheFly(int[] design, long startRow, int fractionSize) {
-        int factors      = design.length;
-        long tr          = calculateProduct(design);
+        int factors = design.length;
+        long tr = calculateProduct(design);
         double[][] fraction = new double[fractionSize][factors];
 
         for (int r = 0; r < fractionSize; r++) {
             long actualRow = (startRow + r) % tr;
+
+            long remaining = actualRow;           // ← NUEVO
             for (int c = 0; c < factors; c++) {
                 int levels = design[c];
-                fraction[r][c] = (actualRow % levels) + 1;
+                fraction[r][c] = (remaining % levels) + 1;  // ← usa remaining
+                remaining = remaining / levels;              // ← avanza al siguiente factor
             }
         }
         return fraction;
@@ -162,7 +165,7 @@ public class NONBPAGeneratorService {
             AliasStructure alias      = null;
             String         aliasError = null;
             try {
-                AliasStructureGenerator generator = new AliasStructureGenerator(fraction);
+                AliasStructureGenerator generator = new AliasStructureGenerator(MatlabFunctions.transpose(fraction));
                 alias = generator.generate();
             } catch (IllegalStateException e) {
                 // Efectos principales fuertemente correlacionados: no bloquea la fracción
